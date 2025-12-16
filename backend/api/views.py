@@ -1,7 +1,17 @@
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework import viewsets
+from django.db.models import Count
+from .models import Classroom, Subject
+from .serializers import ClassroomSerializer, SubjectSerializer
+
+class ClassroomViewSet(viewsets.ModelViewSet):
+    serializer_class = ClassroomSerializer
+
+    def get_queryset(self):
+        return Classroom.objects.annotate(
+            student_count=Count('students')
+        )
 
 
-@api_view(['GET'])
-def welcome(request):
-    return Response({"message": "School Management API ready"})
+class SubjectViewSet(viewsets.ModelViewSet):
+    queryset = Subject.objects.all()
+    serializer_class = SubjectSerializer
