@@ -56,9 +56,9 @@ Le serveur sera accessible sur : **http://127.0.0.1:8000/**
 
 ### Recherche et filtrage
 
-- **Recherche par nom** : `GET /api/students/?search=Jean`
+- **Recherche par nom** : `GET /api/students/?search=Moukhtar`
 - **Filtrage par classe** : `GET /api/students/?classId=1`
-- **Combinaison** : `GET /api/students/?search=Jean&classId=1`
+- **Combinaison** : `GET /api/students/?search=Moukhtar&classId=1`
 - **Tri** : `GET /api/students/?ordering=-birthDate`
 
 ### Gestion des classes (`/api/classes/`)
@@ -85,11 +85,11 @@ curl -X POST http://127.0.0.1:8000/api/classes/ \
 curl -X POST http://127.0.0.1:8000/api/students/ \
   -H "Content-Type: application/json" \
   -d '{
-    "fullName": "Jean Dupont",
-    "birthDate": "2010-05-15",
+    "fullName": "Moukhtar Brahim",
+    "birthDate": "2002-02-03",
     "gender": "M",
-    "parentPhone": "+221771234567",
-    "address": "Dakar, Sénégal",
+    "parentPhone": "+22212345678",
+    "address": "Nktt, Mauritanie",
     "notes": "Élève assidu",
     "classId": 1
   }'
@@ -104,7 +104,7 @@ curl http://127.0.0.1:8000/api/students/
 ### Rechercher un élève par nom
 
 ```bash
-curl "http://127.0.0.1:8000/api/students/?search=Jean"
+curl "http://127.0.0.1:8000/api/students/?search=Moukhtar"
 ```
 
 ### Filtrer par classe
@@ -120,11 +120,11 @@ curl "http://127.0.0.1:8000/api/students/?classId=1"
 ```json
 {
   "id": 1,
-  "fullName": "Jean Dupont",
-  "birthDate": "2010-05-15",
+  "fullName": "Moukhtar Brahim",
+  "birthDate": "2002-02-03",
   "gender": "M",
-  "parentPhone": "+221771234567",
-  "address": "Dakar, Sénégal",
+  "parentPhone": "+22212345678",
+  "address": "Nktt, Mauritanie",
   "notes": "Élève assidu",
   "classId": 1,
   "class_name": "6ème A",
