@@ -2,7 +2,9 @@ asgiref==3.11.0
 Django==6.0
 django-cors-headers==4.9.0
 djangorestframework==3.16.1
+djangorestframework-simplejwt==5.2.2
 sqlparse==0.5.4
+drf_yasg==1.21.6
 
 
 
