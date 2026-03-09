@@ -1,13 +1,28 @@
-<!doctype html>
-<html lang="en">
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
-  </head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Madrasati | نظام إدارة المدرسة</title>
+</head>
   <body>
+    <div class="offline-banner">أنت تعمل الآن بدون اتصال بالإنترنت. قد لا تظهر بعض الأيقونات أو التنسيقات بشكل كامل.</div>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    
+    <script>
+      // مراقبة حالة الاتصال
+      function updateOnlineStatus() {
+        if (navigator.onLine) {
+          document.body.classList.remove('is-offline');
+        } else {
+          document.body.classList.add('is-offline');
+        }
+      }
+      window.addEventListener('online', updateOnlineStatus);
+      window.addEventListener('offline', updateOnlineStatus);
+      updateOnlineStatus();
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>

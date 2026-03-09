@@ -1,0 +1,62 @@
+/* Cairo Font - يجب أن يكون @import في الأعلى قبل @tailwind */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles */
+body {
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+#root:empty::after {
+  content: "جاري تحميل النظام...";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: bold;
+  color: #0ea5e9;
+}
+
+/* تنسيق شريط حالة الاتصال */
+.offline-banner {
+  background-color: #ef4444;
+  color: white;
+  text-align: center;
+  padding: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: none;
+}
+
+body.is-offline .offline-banner {
+  display: block;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
