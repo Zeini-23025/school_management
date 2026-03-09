@@ -1,0 +1,26 @@
+version: '3.8'
+
+# Postgres-only docker-compose for local development
+services:
+  db:
+    image: postgres:15
+    container_name: school_db
+    restart: unless-stopped
+    environment:
+      # Defaults taken from backend/env_template.txt — change the password before using in production
+      POSTGRES_DB: school_db2
+      POSTGRES_USER: school_user
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U school_user -d school_db2 -h localhost -p 5432 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db_data:
+    name: school_db_data
